@@ -30,15 +30,6 @@ public class Base_Database extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.createTable(connectionSource, Model_List.class);
             TableUtils.createTable(connectionSource, Model_ListItem.class);
-
-            Model_List list = new Model_List();
-            list.setName("Dinner");
-            list.setPhoneNumber(1);
-            list.setWebsite(1);
-            list.setActive(0);
-            list.setSort(99);
-
-            getListDao().create(list);
         } catch (SQLException e) {
             e.printStackTrace();
         }
