@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import nz.co.flyingllama.decideforme.Adapter.ListAdapter_List;
@@ -159,7 +160,7 @@ public class MainActivity extends OrmLiteBaseActivity<Base_Database> implements 
                             e.printStackTrace();
                         }
 
-                        String stringToSend = "Copy this message in it's entirety and past it into the 'Import' feature\r\n\r\n" + jList.toString();
+                        String stringToSend = "Copy this message in it's entirety (including this part, if you like) and past it into the 'Import' feature\r\n\r\n" + jList.toString();
 
                         Intent sendIntent = new Intent();
                         sendIntent.setAction(Intent.ACTION_SEND);
@@ -195,7 +196,7 @@ public class MainActivity extends OrmLiteBaseActivity<Base_Database> implements 
                     } else {
                         try {
                             String textString = importText.getText().toString();
-                            textString = textString.replace("Copy this message in it's entirety and past it into the 'Import' feature", "");
+                            textString = textString.substring(textString.indexOf("{"));
                             textString = textString.trim();
 
                             JSONObject jList = new JSONObject(textString);
