@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nz.co.flyingllama.decideforme" >
+    package="nz.co.flyingllama.decideforme">
 
     <application
         android:allowBackup="true"

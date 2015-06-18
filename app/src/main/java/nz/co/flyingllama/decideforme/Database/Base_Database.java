@@ -37,14 +37,14 @@ public class Base_Database extends OrmLiteSqliteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource, int i, int i2) {
-        try {
+        /*try {
             TableUtils.dropTable(connectionSource, Model_List.class, true);
             TableUtils.dropTable(connectionSource, Model_ListItem.class, true);
             onCreate(sqLiteDatabase, connectionSource);
         } catch (SQLException e) {
             Log.e(Base_Database.class.getName(), "Failed upgrade", e);
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     public Dao<Model_List, Integer> getListDao() {

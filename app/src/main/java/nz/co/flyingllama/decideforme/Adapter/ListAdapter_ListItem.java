@@ -160,9 +160,25 @@ public class ListAdapter_ListItem extends BaseAdapter {
         holder.deleteListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDb.deleteListItem(listItem);
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
-                updateData(mDb.getListItems(mList.getId()));
+                builder.setMessage("Delete \"" + listItem.getName() + "\"?");
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mDb.deleteListItem(listItem);
+
+                        updateData(mDb.getListItems(mList.getId()));
+                    }
+                });
+
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                builder.show();
             }
         });
 
